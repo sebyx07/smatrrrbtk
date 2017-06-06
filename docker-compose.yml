@@ -1,0 +1,8 @@
+app:
+  build: ./app
+  command: bash start.sh
+  volumes:
+    - ./app:/app
+  ports:
+    - "8080:8080"
+    - "3000:5000"
