@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CurrenciesController, type: :controller do
+describe CurrenciesController, type: :controller do
 
   describe "GET #index" do
     it "returns http success" do
