@@ -11,7 +11,7 @@ describe CurrencyService do
     end
 
     context 'valid currencies' do
-      ['btc'].each do |currency|
+      %w(btc eth nasdaq).each do |currency|
         it 'ok' do
           values = CurrencyService.get_currency(currency, '30')
           expect(values).not_to be_nil

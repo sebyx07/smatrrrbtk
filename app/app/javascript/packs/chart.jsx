@@ -21,12 +21,12 @@ class Chart extends React.Component {
   }
 
   setCurrency(currency){
-    this.setState({currency: currency});
+    this.state.currency = currency;
     this.getCurrencyValues();
   }
 
   setTimeSpan(timeSpan){
-    this.setState({timeSpan: timeSpan});
+    this.state.timeSpan = timeSpan;
     this.getCurrencyValues();
   }
 
@@ -43,7 +43,7 @@ class Chart extends React.Component {
 
         formattedValues.push([utcDate, data[v].value]);
       }
-      this.setState({values: formattedValues});
+      this.state.values = formattedValues;
       self.renderChart();
     }).fail((error) => {
       alert(error.responseJSON.error);
@@ -93,7 +93,7 @@ class Chart extends React.Component {
     const chart = <div id="chart"></div>;
     const currencyButtons = [],
       timeSpanButtons = [];
-    ['BTC', 'ETH'].forEach((currency) => {
+    ['BTC', 'ETH', 'NASDAQ'].forEach((currency) => {
       currencyButtons.push(<button key={currency}
                                    className="btn btn-primary"
                                    onClick={this.setCurrency.bind(this, currency)}>

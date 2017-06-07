@@ -1,5 +1,6 @@
 class CurrenciesController < ApplicationController
   def index
+    @rates = CurrencyService.current_rates
   end
 
   def get_currency

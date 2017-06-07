@@ -1,7 +1,9 @@
 module CurrencyService
   RESULT = Struct.new(:date, :value)
   class CurrencyErr < Exception; end
-  CURRENCIES_CLASSES = {'btc' => CurrencyService::Btc}
+  CURRENCIES_CLASSES = {'btc' => CurrencyService::Btc,
+                        'eth' => CurrencyService::Eth,
+                        'nasdaq' => CurrencyService::Nasdaq}
 
   class << self
     def get_currency(currency, time_span)
@@ -11,6 +13,16 @@ module CurrencyService
       end
 
       klass.get(time_span)
+    end
+
+    def current_rates
+      rates = {}
+      CURRENCIES_CLASSES.each.map do |key, klass|
+        last_rate = klass.get('30').last.value
+        rates[key] = last_rate
+      end
+
+      rates
     end
   end
 end
