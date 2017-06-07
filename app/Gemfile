@@ -64,3 +64,6 @@ gem 'jquery-rails'
 
 gem 'highcharts-rails'
 gem 'bootstrap-sass'
+
+gem 'actionpack-action_caching'
+

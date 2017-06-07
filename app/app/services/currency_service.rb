@@ -17,11 +17,11 @@ module CurrencyService
 
     def current_rates
       rates = {}
+      rates['updated at'] = Time.now
       CURRENCIES_CLASSES.each.map do |key, klass|
         last_rate = klass.get('30').last.value
         rates[key] = last_rate
       end
-
       rates
     end
   end

@@ -10,7 +10,11 @@
     <tbody>
     <tr>
       <% @rates.each do |rate| %>
-        <td>$<%= rate[1] %></td>
+          <% if rate[1].is_a?(Time) %>
+          <td><%= rate[1].to_time.strftime('%B %e at %l:%M %p') %></td>
+              <% else %>
+          <td>$<%= rate[1] %></td>
+          <% end %>
       <% end %>
     </tr>
     </tbody>
