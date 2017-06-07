@@ -1,3 +1,24 @@
-<h1>Currencies#index</h1>
-<p>Find me in app/views/currencies/index.html.erb</p>
-<%= javascript_pack_tag 'hello_react' %>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <% @rates.each do |rate| %>
+          <th><%= rate[0].upcase %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <% @rates.each do |rate| %>
+          <% if rate[1].is_a?(Time) %>
+          <td><%= rate[1].to_time.strftime('%B %e at %l:%M %p') %></td>
+              <% else %>
+          <td>$<%= rate[1] %></td>
+          <% end %>
+      <% end %>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<%= javascript_pack_tag 'chart' %>

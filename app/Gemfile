@@ -59,3 +59,11 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'foreman'
+
+gem 'jquery-rails'
+
+gem 'highcharts-rails'
+gem 'bootstrap-sass'
+
+gem 'actionpack-action_caching'
+

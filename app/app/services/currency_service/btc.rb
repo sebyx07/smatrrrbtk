@@ -12,7 +12,7 @@ module CurrencyService
       uri = URI(BASE_URL.gsub('TIME_SPAN', TIME_SPAN[time_span]))
       response = Net::HTTP.get_response(uri)
       unless response.is_a?(Net::HTTPSuccess)
-        raise CurrencyService::HttpErr
+        raise CurrencyService::CurrencyErr.new('Server not available')
       end
       json = JSON.parse(response.body)
       json['values'].map {|val| CurrencyService::RESULT.new(val['x'], val['y'])}
