@@ -1,7 +1,7 @@
 module CurrencyService
   RESULT = Struct.new(:date, :value)
   class CurrencyErr < Exception; end
-  CURRENCIES_CLASSES = {btc: CurrencyService::Btc}
+  CURRENCIES_CLASSES = {'btc' => CurrencyService::Btc}
 
   class << self
     def get_currency(currency, time_span)

@@ -12,4 +12,11 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery3
 //= require_tree .
+
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+  }
+});
