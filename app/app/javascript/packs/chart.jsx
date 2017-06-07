@@ -94,16 +94,31 @@ class Chart extends React.Component {
     const currencyButtons = [],
       timeSpanButtons = [];
     ['BTC', 'ETH'].forEach((currency) => {
-      currencyButtons.push(<button key={currency} onClick={this.setCurrency.bind(this, currency)}>{currency}</button>)
+      currencyButtons.push(<button key={currency}
+                                   className="btn btn-primary"
+                                   onClick={this.setCurrency.bind(this, currency)}>
+                                      {currency}
+                                   </button>)
     });
 
     ['30', '365'].forEach((timeSpan) => {
-      timeSpanButtons.push(<button key={timeSpan} onClick={this.setTimeSpan.bind(this, timeSpan)}>{timeSpan}</button>)
+      timeSpanButtons.push(<button key={timeSpan}
+                                   className="btn btn-success"
+                                   onClick={this.setTimeSpan.bind(this, timeSpan)}>
+                                     {timeSpan} days
+                                   </button>)
     });
-    return <div>
+    return <div className="container">
       {chart}
-      {currencyButtons}
-      {timeSpanButtons}
+      <div className="controls">
+        <div className="btn-group">
+          {currencyButtons}
+        </div>
+        <br/>
+        <div className="btn-group">
+          {timeSpanButtons}
+        </div>
+      </div>
     </div>
   }
 }
